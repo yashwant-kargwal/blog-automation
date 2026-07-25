@@ -1,0 +1,85 @@
+app:
+  name: Bloggen
+  environment: development
+  debug: false
+
+logging:
+  level: INFO
+  log_directory: data/logs
+  error_file: errors.log
+  debug_file: debug.log
+  retention: 14 days
+
+http:
+  base_url: null
+  timeout_seconds: 30
+  max_retries: 3
+
+providers:
+  active: openrouter
+  available:
+    - openrouter
+  openrouter:
+    model: openai/gpt-4o-mini
+    base_url: https://openrouter.ai/api/v1
+    timeout_seconds: 60
+    max_retries: 3
+    app_name: Bloggen
+    referer: null
+
+research:
+  backends:
+    - duckduckgo
+    - bing
+    - brave
+  region: us-en
+  safe_search: moderate
+  default_top_n: 10
+  default_depth: 1
+  cache_directory: data/cache/search
+  cache_ttl_seconds: 86400
+  timeout_seconds: 15
+  output_directory: data/research
+  analysis_cache_ttl_seconds: 86400
+
+scraper:
+  timeout_seconds: 30
+  max_retries: 3
+  retry_backoff_seconds: 0.5
+  concurrency: 5
+  cache_directory: data/cache/pages
+  cache_ttl_seconds: 86400
+  user_agent: Bloggen/0.1.0 (+https://github.com/bloggen/bloggen)
+
+seo:
+  output_directory: data/seo
+  cache_ttl_seconds: 86400
+  max_tokens: 8000
+
+writer:
+  default_style: conversational
+  available_styles:
+    - conversational
+    - technical
+    - editorial
+    - beginner-friendly
+    - how-to
+  minimum_words: 1200
+  maximum_words: 3000
+  max_tokens: 12000
+  output_directory: data/blogs
+  cache_ttl_seconds: 86400
+
+storage:
+  projects_directory: data/projects
+  timezone: UTC
+
+cache:
+  enabled: true
+  directory: data/cache
+  ttl_seconds: 86400
+
+pipeline:
+  top_n: 10
+  depth: 1
+  max_articles: 5

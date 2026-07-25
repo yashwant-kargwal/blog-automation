@@ -1,0 +1,40 @@
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+coverage.xml
+htmlcov/
+.coverage
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Runtime data
+data/logs/*
+data/cache/*
+data/output/*
+data/projects/*
+data/research/*
+data/seo/*
+data/blogs/*
+!data/logs/.gitkeep
+!data/cache/.gitkeep
+!data/output/.gitkeep
+
+# IDE and OS files
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db

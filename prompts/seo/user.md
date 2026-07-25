@@ -1,0 +1,8 @@
+TOPIC:
+$topic
+
+RETURN JSON IN THIS SHAPE:
+$schema
+
+STRUCTURED RESEARCH:
+$research_json
